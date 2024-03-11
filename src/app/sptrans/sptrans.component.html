@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Example</title>
+  <style>
+    /* Estilos para o menu */
+    body {
+      font-family: Arial, sans-serif;
+      background-repeat: repeat;
+      background-size: cover;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+      background-position: center;
+      background-attachment: fixed;
+      background-image: url('https://png.pngtree.com/background/20230416/original/pngtree-website-contrast-color-illustration-background-picture-image_2443563.jpg'); /* Define a imagem de fundo do corpo */
+      overflow-x: hidden; /* Impede a rolagem horizontal */
+    }
+
+
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo transparente com 50% de opacidade */
+      overflow: hidden;
+      text-align: center; /* Centraliza o texto */
+      position: relative; /* Adiciona posição relativa para sobrepor a imagem do cabeçalho */
+      z-index: 1; /* Define uma ordem de empilhamento para sobrepor a imagem */
+    }
+
+    .navbar a {
+      display: inline-block; /* Exibe os links em linha */
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+
+    .navbar a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    /* Estilos para a imagem de cabeçalho */
+    .header {
+      color: white;
+      text-align: center;
+      padding: 100px 0;
+      margin-bottom: 40px; /* Adiciona espaço entre a imagem e o conteúdo */
+      position: relative; /* Adiciona posição relativa para que o conteúdo fique por cima da imagem */
+      z-index: 0; /* Define uma ordem de empilhamento para que o conteúdo fique por cima da imagem */
+    }
+
+    /* Estilos para a imagem acima do título */
+    .header img {
+      width: 100vw; /* Define a largura da imagem como 100% da largura da janela */
+      height: 100vh; /* Define a altura da imagem como 100% da altura da janela */
+      object-fit: cover; /* Garante que a imagem cubra toda a área, mantendo sua proporção */
+      position: absolute; /* Define posição absoluta para que a imagem ocupe toda a viewport */
+      top: 0; /* Alinha a imagem no topo da viewport */
+      left: 0; /* Alinha a imagem à esquerda da viewport */
+    }
+
+    /* Estilos para o botão */
+    .button {
+      background-color: #000; /* Cor de fundo padrão */
+      border: none; /* Remove a borda */
+      color: white; /* Cor do texto */
+      padding: 15px 32px; /* Espaçamento interno */
+      text-align: center; /* Centraliza o texto */
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      transition-duration: 0.4s; /* Duração da transição */
+      cursor: pointer; /* Cursor do mouse */
+      border-radius: 12px; /* Borda arredondada */
+    }
+
+    /* Estilos para o botão quando o mouse passa por cima */
+    .button:hover {
+      background-color: #828080; /* Nova cor de fundo */
+    }
+
+    /* Estilos para o input */
+    /* Estilos para o input */
+    input[type=text] {
+      width: 10%; /* Define a largura do input como 50% da largura do pai */
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 12px; /* Borda arredondada */
+      box-sizing: border-box;
+    }
+    /* Estilos para a caixa de JSON */
+    .json-box {
+      background-color: #000000; /* Cor de fundo */
+      border: 1px solid #ccc; /* Borda */
+      width: 20%;
+      align-items: center;
+      border-radius: 8px; /* Bordas arredondadas */
+      padding: 10px; /* Espaçamento interno */
+      font-family: Arial, sans-serif; /* Fonte */
+      overflow-x: auto; /* Adiciona rolagem horizontal se necessário */
+    }
+  </style>
+
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+<script>
+  // Função para exibir o alerta
+  function exibirAlerta() {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Something went wrong!",
+      footer: '<a href="#">Why do I have this issue?</a>'
+    });
+  }
+</script>
+
+<!-- Menu de navegação -->
+<div class="navbar">
+  <a href="#">Inicio</a>
+  <a href="#">Sobre</a>
+  <a href="#">Servicos</a>
+  <a href="#">Contatos</a>
+</div>
+
+<!-- Cabeçalho com imagem de fundo -->
+<div class="header">
+  <h1>Bem vindo ao Futuro</h1>
+  <p>Construindo e Inovando</p>
+</div>
+
+<!-- Conteúdo principal -->
+<div class="header">
+  <h2>API</h2>
+
+  <input [(ngModel)]="cepId" type="text" placeholder="Digite aqui">
+
+  <!-- Botão estilizado -->
+  <button (click)="buscar(cepId)" class="button">Consultar</button>
+
+  <!-- Caixa de JSON estilizada -->
+  <div *ngIf="detalhes">
+    <!-- Exibir detalhes aqui -->
+    <pre class="json-box">{{ detalhes | json }}</pre>
+  </div>
+</div>
+
+</body>
+</html>
