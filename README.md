@@ -28,7 +28,7 @@ Envie pull requests com melhorias ou correções de bugs.
 Se precisar de ajuda ou tiver alguma dúvida, entre em contato:
 
 Email: ticleyton@gmail.com 
-Status do Projeto
+# Status do Projeto
 Em desenvolvimento
 
 # Outras Informações

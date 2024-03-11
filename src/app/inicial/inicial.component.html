@@ -14,6 +14,7 @@
       justify-content: center;
       margin: 0;
       padding: 0;
+        height: 100vh;
       background-position: center;
       background-attachment: fixed;
       background-image: url('https://png.pngtree.com/background/20230416/original/pngtree-website-contrast-color-illustration-background-picture-image_2443563.jpg'); /* Define a imagem de fundo do corpo */
@@ -95,36 +96,77 @@
       box-sizing: border-box;
     }
     /* Estilos para a caixa de JSON */
+    .json-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto; /* Altura automática */
+    }
+
     .json-box {
-      background-color: #000000; /* Cor de fundo */
-      border: 1px solid #ccc; /* Borda */
-      width: 20%;
-      align-items: center;
-      border-radius: 8px; /* Bordas arredondadas */
-      padding: 10px; /* Espaçamento interno */
-      font-family: Arial, sans-serif; /* Fonte */
-      overflow-x: auto; /* Adiciona rolagem horizontal se necessário */
+        /* Estilos para a caixa de JSON */
+        background-color: #000000; /* Cor de fundo */
+        border: 1px solid #ccc; /* Borda */
+        width: 35%; /* Largura desejada */
+        max-height: 80vh; /* Altura máxima de 80% da viewport */
+        overflow-y: auto; /* Adiciona rolagem vertical se necessário */
+        border-radius: 8px; /* Bordas arredondadas */
+        padding: 10px; /* Espaçamento interno */
+        font-family: Arial, sans-serif; /* Fonte */
+    }
+
+
+    /* Estilos para o combobox personalizado */
+    .custom-select {
+        display: block;
+        font-size: 16px;
+        font-family: Arial, sans-serif;
+        color: #333;
+        align-items: center;
+        align-content: center;
+        align-self: center;
+        alignment-baseline: center;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background-color: #fff;
+        width: 200px; /* Defina a largura desejada */
+        margin-bottom: 10px;
+    }
+
+    /* Estilos para as opções dentro do combobox */
+    .custom-select option {
+        font-size: 16px;
+        font-family: Arial, sans-serif;
+        color: #333;
+        background-color: #fff;
+    }
+
+    .container {
+        position: relative;
+        width: 100%;
+        height: 5vh; /* Ajuste conforme necessário */
+    }
+
+    .content {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+
+        transform: translate(-50%, -50%);
+        /* Estilos para o conteúdo interno */
+    }
+    .navbar a:first-child {
+        cursor: pointer;
     }
   </style>
 
 </head>
 <body>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
-<script>
-  // Função para exibir o alerta
-  function exibirAlerta() {
-    Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text: "Something went wrong!",
-      footer: '<a href="#">Why do I have this issue?</a>'
-    });
-  }
-</script>
 
 <!-- Menu de navegação -->
 <div class="navbar">
-  <a href="#">Inicio</a>
+  <a (click)="reloadPage()">Inicio</a>
   <a href="#">Sobre</a>
   <a href="#">Servicos</a>
   <a href="#">Contatos</a>
@@ -140,16 +182,25 @@
 <div class="header">
   <h2>API</h2>
 
-  <input [(ngModel)]="cepId" type="text" placeholder="Digite aqui">
+    <div class="container">
+        <div class="content">
+            <select [(ngModel)]="opcaoSelecionada" class="custom-select">
+                <option value="1">API - CEP</option>
+                <option value="2">API - SPTRANS</option>
+            </select>
+        </div>
+    </div>
+    <!-- Combobox estilizado -->
 
+    <input [(ngModel)]="input" type="text" placeholder="Digite aqui">
   <!-- Botão estilizado -->
-  <button (click)="buscar(cepId)" class="button">Consultar</button>
+    <button (click)="pegarValorSelecionado()" class="button">Consultar</button>
 
   <!-- Caixa de JSON estilizada -->
-  <div *ngIf="detalhes">
-    <!-- Exibir detalhes aqui -->
-    <pre class="json-box">{{ detalhes | json }}</pre>
-  </div>
+    <div *ngIf="detalhes" class="json-container">
+        <!-- Exibir detalhes aqui -->
+        <pre class="json-box">{{ detalhes | json }}</pre>
+    </div>
 </div>
 
 </body>

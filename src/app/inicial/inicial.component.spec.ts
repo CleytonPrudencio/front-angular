@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SPTRANSComponent } from './sptrans.component';
+import { InicialComponent } from '././inicial.component';
 
 describe('SPTRANSComponent', () => {
-  let component: SPTRANSComponent;
-  let fixture: ComponentFixture<SPTRANSComponent>;
+  let component: InicialComponent;
+  let fixture: ComponentFixture<InicialComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SPTRANSComponent]
+      imports: [InicialComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(SPTRANSComponent);
+    fixture = TestBed.createComponent(InicialComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -2,22 +2,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import {SPTRANSComponent} from "./sptrans/sptrans.component";
-import {SptransService} from "./sptrans.service";
+import {InicialComponent} from "./inicial/inicial.component";
+import {InicialService} from "./inicial/inicial.service";
 import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SPTRANSComponent
+    InicialComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule
   ],
-  providers: [ SptransService ],
+  providers: [ InicialService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
