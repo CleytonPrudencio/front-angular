@@ -5,19 +5,22 @@ import { AppComponent } from './app.component';
 import {InicialComponent} from "./inicial/inicial.component";
 import {InicialService} from "./inicial/inicial.service";
 import {FormsModule} from "@angular/forms";
-
+import {LoginComponent} from "./login/login.component";
+import { AppRoutingModule } from './app-routing.module'
 
 @NgModule({
   declarations: [
     AppComponent,
-    InicialComponent
+    InicialComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
-  providers: [ InicialService ],
+  providers: [ InicialService,LoginComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

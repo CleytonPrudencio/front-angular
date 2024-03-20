@@ -1,0 +1,12 @@
+/* Estilos CSS personalizados para o modal */
+.modal-body {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    width: 100%;
+}
